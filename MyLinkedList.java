@@ -23,14 +23,14 @@ class MyLinkedList{
    return true;
  }
 
- private Node get(int index) {
+ private Integer get(int index) {
    int current = 0;
    Node result = start;
-   while (current <= index) {
+   while (current < index) {
      result = result.next();
      current++;
    }
-   return result;
+   return result.getData();
  }
 
  public String toString() {
