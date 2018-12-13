@@ -24,7 +24,17 @@ class MyLinkedList{
  }
 
  public String toString() {
-   return "";
+   String result = "[";
+   if (start == null) {
+     return "[]";
+   }
+   Node current = start;
+   while (current.getNext() != null) {
+     result += current.getData() + ", ";
+     current = current.getNext();
+   }
+   result = result.substring(0,result.length() - 2);
+   return result + "]";
  }
 }
 
