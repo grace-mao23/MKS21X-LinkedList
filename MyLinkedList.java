@@ -35,17 +35,28 @@ class MyLinkedList{
 
  public String toString() {
    String result = "[";
-   if (start == null) {
+   if (end == null) {
      return "[]";
    }
    Node current = start;
+   result += current.getData() + ", ";
    while (current.next() != null) {
-     result += current.getData() + ", ";
      current = current.next();
+     result += current.getData() + ", ";
    }
    result = result.substring(0,result.length() - 2);
    return result + "]";
  }
+
+ public static void main(String[] args) {
+   MyLinkedList test = new MyLinkedList();
+   System.out.println(test.toString());
+   test.add(0);
+   test.add(2);
+   test.add(5);
+   System.out.println(test.toString());
+ }
+
 }
 
 class Node{
