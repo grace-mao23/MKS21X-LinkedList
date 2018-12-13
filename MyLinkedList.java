@@ -23,7 +23,7 @@ class MyLinkedList{
    return true;
  }
 
- private Integer get(int index) {
+ private Integer get(int index) { //private
    int current = 0;
    Node result = start;
    while (current < index) {
@@ -31,6 +31,18 @@ class MyLinkedList{
      current++;
    }
    return result.getData();
+ }
+
+ private Integer set(int index,Integer value) { //private
+   int current = 0;
+   Node old = start;
+   while (current < index) {
+     old = old.next();
+     current++;
+   }
+   Integer result = old.getData();
+   old.setData(value);
+   return result;
  }
 
  public String toString() {
