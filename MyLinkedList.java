@@ -1,6 +1,24 @@
 class Node{
  private int data;
  private Node next,prev;
+
+ public Node(int d, Node n, Node p) {
+   data = d;
+   next = n;
+   prev = p;
+ }
+
+ public int getData() {
+   return data;
+ }
+
+ public Node getNext() {
+   return next;
+ }
+
+ public Node getPrev() {
+   return prev;
+ }
 }
 
 class MyLinkedList{
