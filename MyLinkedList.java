@@ -19,14 +19,30 @@ class Node{
  public Node getPrev() {
    return prev;
  }
+
+ public void setData(int d) {
+   data = d;
+ }
+
+ public void setNext(Node n) {
+   next = n;
+ }
+
+ public void setPrev(Node n) {
+   prev = n;
+ }
 }
 
 class MyLinkedList{
  private int size;
  private Node start,end;
 
+ public MyLinkedList(int s) {
+   size = s;
+ }
+
  public int size() {
-   return 0;
+   return size;
  }
  public boolean add(int value) {
    return true;
