@@ -45,6 +45,17 @@ class MyLinkedList{
    return result;
  }
 
+ public boolean contains(Integer value) {
+   Node current = start;
+   while (current.next() != null) {
+     current = current.next();
+     if (value == current.getData()) {
+       return true;
+     }
+   }
+   return false;
+ }
+
  public String toString() {
    String result = "[";
    if (end == null) {
@@ -67,6 +78,7 @@ class MyLinkedList{
    test.add(2);
    test.add(5);
    System.out.println(test.toString());
+   System.out.println(test.contains(2));
  }
 
 }
