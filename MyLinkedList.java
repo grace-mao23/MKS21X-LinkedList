@@ -15,7 +15,7 @@ class MyLinkedList{
      end = new Node(value,end,null);
      start = end;
    } else {
-     Node n = new Node(value, end.getPrev(), null);
+     Node n = new Node(value, end.prev(), null);
      end.setNext(n);
      end = n;
    }
@@ -29,9 +29,9 @@ class MyLinkedList{
      return "[]";
    }
    Node current = start;
-   while (current.getNext() != null) {
+   while (current.next() != null) {
      result += current.getData() + ", ";
-     current = current.getNext();
+     current = current.next();
    }
    result = result.substring(0,result.length() - 2);
    return result + "]";
@@ -39,7 +39,7 @@ class MyLinkedList{
 }
 
 class Node{
- private int data;
+ private Integer data;
  private Node next,prev;
 
  public Node(int d, Node p, Node n) {
@@ -52,11 +52,11 @@ class Node{
    return data;
  }
 
- public Node getNext() {
+ public Node next() {
    return next;
  }
 
- public Node getPrev() {
+ public Node prev() {
    return prev;
  }
 
