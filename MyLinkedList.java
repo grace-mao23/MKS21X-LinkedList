@@ -1,5 +1,5 @@
 class MyLinkedList{
- private int size = 0;
+ private int length = 0;
  private Node start,end;
 
  public MyLinkedList() {
@@ -7,10 +7,10 @@ class MyLinkedList{
  }
 
  public int size() {
-   return size;
+   return length;
  }
 
- public boolean add(int value) {
+ public boolean add(Integer value) {
    if (end == null) {
      end = new Node(value,end,null);
      start = end;
@@ -19,8 +19,18 @@ class MyLinkedList{
      end.setNext(n);
      end = n;
    }
-   size++;
+   length++;
    return true;
+ }
+
+ private Node get(int index) {
+   int current = 0;
+   Node result = start;
+   while (current <= index) {
+     result = result.next();
+     current++;
+   }
+   return result;
  }
 
  public String toString() {
