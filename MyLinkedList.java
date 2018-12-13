@@ -1,8 +1,38 @@
+class MyLinkedList{
+ private int size = 0;
+ private Node start,end;
+
+ public MyLinkedList() {
+   //empty constructor
+ }
+
+ public int size() {
+   return size;
+ }
+
+ public boolean add(int value) {
+   if (end == null) {
+     end = new Node(value,end,null);
+     start = end;
+   } else {
+     Node n = new Node(value, end.getPrev(), null);
+     end.setNext(n);
+     end = n;
+   }
+   size++;
+   return true;
+ }
+
+ public String toString() {
+   return "";
+ }
+}
+
 class Node{
  private int data;
  private Node next,prev;
 
- public Node(int d, Node n, Node p) {
+ public Node(int d, Node p, Node n) {
    data = d;
    next = n;
    prev = p;
@@ -30,24 +60,5 @@ class Node{
 
  public void setPrev(Node n) {
    prev = n;
- }
-}
-
-class MyLinkedList{
- private int size;
- private Node start,end;
-
- public MyLinkedList(int s) {
-   size = s;
- }
-
- public int size() {
-   return size;
- }
- public boolean add(int value) {
-   return true;
- }
- public String toString() {
-   return "";
  }
 }
