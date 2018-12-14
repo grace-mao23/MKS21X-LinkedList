@@ -37,7 +37,7 @@ class MyLinkedList{
    return getNode(index).getData();
  }
 
- private Integer set(int index,Integer value) { //private
+ public Integer set(int index,Integer value) {
    Node old = getNode(index);
    Integer result = old.getData();
    old.setData(value);
@@ -55,9 +55,21 @@ class MyLinkedList{
    return false;
  }
 
-// public int indexOf(Integer value) {
-
-//}
+ public int indexOf(Integer value) {
+   Node current = start;
+   int result = 0;
+   if (start.getData() == value) {
+     return result;
+   }
+   while (current.next() != null) {
+     current = current.next();
+     result++;
+     if (current.getData() == value) {
+       return result;
+     }
+   }
+   return -1;
+ }
 
  public String toString() {
    String result = "[";
@@ -81,8 +93,7 @@ class MyLinkedList{
    test.add(2);
    test.add(5);
    System.out.println(test.toString());
-   System.out.println(test.set(2, 4));
-   System.out.println(test.toString());
+   System.out.println(test.contains(0));
  }
 
 }
