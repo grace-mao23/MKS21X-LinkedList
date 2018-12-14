@@ -122,7 +122,7 @@ class MyLinkedList{
    if (index == -1) {
      return false;
    }
-   System.out.println(index + ": " + value);
+   //System.out.println(index + ": " + value);
    remove(index);
    return true;
  }
