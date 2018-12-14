@@ -46,11 +46,11 @@ class MyLinkedList{
 
  public boolean contains(Integer value) {
    Node current = start;
-   while (current.next() != null) {
-     current = current.next();
+   while (current != null) {
      if (value == current.getData()) {
        return true;
      }
+     current = current.next();
    }
    return false;
  }
@@ -58,15 +58,12 @@ class MyLinkedList{
  public int indexOf(Integer value) {
    Node current = start;
    int result = 0;
-   if (start.getData() == value) {
-     return result;
-   }
-   while (current.next() != null) {
-     current = current.next();
-     result++;
+   while (current != null) {
      if (current.getData() == value) {
        return result;
      }
+     current = current.next();
+     result++;
    }
    return -1;
  }
@@ -93,7 +90,7 @@ class MyLinkedList{
    test.add(2);
    test.add(5);
    System.out.println(test.toString());
-   System.out.println(test.contains(0));
+   System.out.println(test.indexOf(2));
  }
 
 }
