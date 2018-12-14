@@ -38,12 +38,7 @@ class MyLinkedList{
  }
 
  private Integer set(int index,Integer value) { //private
-   int current = 0;
-   Node old = start;
-   while (current < index) {
-     old = old.next();
-     current++;
-   }
+   Node old = getNode(index);
    Integer result = old.getData();
    old.setData(value);
    return result;
@@ -86,7 +81,8 @@ class MyLinkedList{
    test.add(2);
    test.add(5);
    System.out.println(test.toString());
-   System.out.println(test.get(2));
+   System.out.println(test.set(2, 4));
+   System.out.println(test.toString());
  }
 
 }
