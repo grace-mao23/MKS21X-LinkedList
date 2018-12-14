@@ -92,6 +92,9 @@ class MyLinkedList{
  }
 
  public boolean remove(Integer value){
+   int index = indexOf(value);
+   System.out.println(index + ": " + value);
+   remove(index);
    return true;
  }
 
@@ -121,7 +124,7 @@ class MyLinkedList{
    test.add(1,1);
    System.out.println(test.toString());
    System.out.println(test.size());
-   test.remove(3);
+   test.remove(Integer.valueOf(5)); // turns int 5 into Integer 5
    System.out.println(test.toString());
    System.out.println(test.size());
  }
