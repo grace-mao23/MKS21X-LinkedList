@@ -75,6 +75,14 @@ class MyLinkedList{
    length++;
  }
 
+ public Integer remove(int index) {
+   Integer result = get(index);
+   getNode(index-1).setNext(getNode(index+1));
+   getNode(index).setPrev(getNode(index-1));
+   length--;
+   return result;
+ }
+
  public String toString() {
    String result = "[";
    if (end == null) {
@@ -99,6 +107,9 @@ class MyLinkedList{
    System.out.println(test.toString());
    System.out.println(test.size());
    test.add(1,1);
+   System.out.println(test.toString());
+   System.out.println(test.size());
+   test.remove(2);
    System.out.println(test.toString());
    System.out.println(test.size());
  }
