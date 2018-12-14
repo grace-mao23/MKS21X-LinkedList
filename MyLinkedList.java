@@ -68,6 +68,13 @@ class MyLinkedList{
    return -1;
  }
 
+ public void add(int index, Integer value) {
+   Node n = new Node(value, getNode(index-1), getNode(index));
+   getNode(index-1).setNext(n);
+   getNode(index).setPrev(n);
+   length++;
+ }
+
  public String toString() {
    String result = "[";
    if (end == null) {
@@ -90,7 +97,10 @@ class MyLinkedList{
    test.add(2);
    test.add(5);
    System.out.println(test.toString());
-   System.out.println(test.indexOf(2));
+   System.out.println(test.size());
+   test.add(1,1);
+   System.out.println(test.toString());
+   System.out.println(test.size());
  }
 
 }
