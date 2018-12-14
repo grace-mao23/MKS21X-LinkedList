@@ -91,6 +91,10 @@ class MyLinkedList{
    return result;
  }
 
+ public boolean remove(Integer value){
+   return true;
+ }
+
  public String toString() {
    String result = "[";
    if (end == null) {
