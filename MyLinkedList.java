@@ -23,14 +23,18 @@ class MyLinkedList{
    return true;
  }
 
- private Integer get(int index) { //private
+ private Node getNode(int index) { //private
    int current = 0;
    Node result = start;
    while (current < index) {
      result = result.next();
      current++;
    }
-   return result.getData();
+   return result;
+ }
+
+ public Integer get(int index) {
+   return getNode(index).getData();
  }
 
  private Integer set(int index,Integer value) { //private
@@ -56,6 +60,10 @@ class MyLinkedList{
    return false;
  }
 
+// public int indexOf(Integer value) {
+
+//}
+
  public String toString() {
    String result = "[";
    if (end == null) {
@@ -78,7 +86,7 @@ class MyLinkedList{
    test.add(2);
    test.add(5);
    System.out.println(test.toString());
-   System.out.println(test.contains(2));
+   System.out.println(test.get(2));
  }
 
 }
