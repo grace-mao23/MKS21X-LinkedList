@@ -87,13 +87,23 @@ class MyLinkedList{
  // adds value at index
  // throws exception if out of range
  public void add(int index, Integer value) {
-   if (index < 0 || index >= size()) {
+   if (index < 0 || index > size()) {
      throw new IndexOutOfBoundsException();
    }
-   Node n = new Node(value, getNode(index-1), getNode(index));
-   getNode(index-1).setNext(n);
-   getNode(index).setPrev(n);
-   length++;
+   if (index == 0) {
+     Node temp = new Node(value, start, getNode(index+1));
+     start.setPrev(temp);
+     start = temp;
+     length++;
+   }
+   else if (index == size()){
+     add(value);
+   } else {
+     Node n = new Node(value, getNode(index-1), getNode(index));
+     getNode(index-1).setNext(n);
+     getNode(index).setPrev(n);
+     length++;
+   }
  }
 
  // returns old element, removes element at index
@@ -101,6 +111,9 @@ class MyLinkedList{
  public Integer remove(int index) {
    if (index < 0 || index >= size()) {
      throw new IndexOutOfBoundsException();
+   }
+   if (index == 0) {
+     start = getNode(index+1);
    }
    Integer result = get(index);
    if (getNode(index).next() == null) {
