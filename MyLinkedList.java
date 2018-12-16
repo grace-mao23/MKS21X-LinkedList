@@ -91,7 +91,7 @@ class MyLinkedList{
      throw new IndexOutOfBoundsException();
    }
    if (index == 0) {
-     Node temp = new Node(value, start, getNode(index+1));
+     Node temp = new Node(value, null, start);
      start.setPrev(temp);
      start = temp;
      length++;
@@ -112,10 +112,11 @@ class MyLinkedList{
    if (index < 0 || index >= size()) {
      throw new IndexOutOfBoundsException();
    }
+   Integer result = get(index);
    if (index == 0) {
      start = getNode(index+1);
+     return result;
    }
-   Integer result = get(index);
    if (getNode(index).next() == null) {
      getNode(index-1).setNext(end);
      end = getNode(index-1);
