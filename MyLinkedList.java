@@ -146,17 +146,17 @@ class MyLinkedList{
  //The size of other is reduced to 0
  //The size of this is now the combined sizes of both original lists
  public void extend(MyLinkedList other){
-   if (length == 0 || other.size() == 0) {
+   if (length == 0) { // if this is empty, make this other
      start = other.start;
      end = other.end;
-   } else {
+   } else if (other.size() != 0) { // else if other is not empty, do this
      end.setNext(other.start);
      other.start.setPrev(end);
-     other.start = null;
-     other.end = null;
-     other.length = 0;
-   }
+   } // if other is empty, nothing happens
+   other.start = null;
+   other.end = null;
    length += other.size();
+   other.length = 0;
  }
 
  public String toString() {
@@ -181,13 +181,14 @@ class MyLinkedList{
    test.add(2);
    test.add(5);
    System.out.println(test.toString());
-   System.out.println(test.size());
-   test.add(1,1);
+   MyLinkedList test2 = new MyLinkedList();
+   test2.add(1);
+   test2.add(3);
+   test2.add(4);
+   test2.add(6);
+   System.out.println(test2.toString());
+   test.extend(test2);
    System.out.println(test.toString());
-   System.out.println(test.size());
-   test.remove(Integer.valueOf(5)); // turns int 5 into Integer 5
-   System.out.println(test.toString());
-   System.out.println(test.size());
  }
 
 }
