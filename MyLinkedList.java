@@ -141,6 +141,16 @@ class MyLinkedList{
    return true;
  }
 
+ //New Method
+ //in O(1) runtime, move the elements from other onto the end of this
+ //The size of other is reduced to 0
+ //The size of this is now the combined sizes of both original lists
+ public void extend(MyLinkedList other){
+   if (other.get(0) != null) { // if other is empty, don't do anything
+     
+   }
+ }
+
  public String toString() {
    String result = "[";
    if (end == null) {
