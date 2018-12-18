@@ -146,9 +146,17 @@ class MyLinkedList{
  //The size of other is reduced to 0
  //The size of this is now the combined sizes of both original lists
  public void extend(MyLinkedList other){
-   if (other.get(0) != null) { // if other is empty, don't do anything
-     
+   if (length == 0 || other.size() == 0) {
+     start = other.start;
+     end = other.end;
+   } else {
+     end.setNext(other.start);
+     other.start.setPrev(end);
+     other.start = null;
+     other.end = null;
+     other.length = 0;
    }
+   length += other.size();
  }
 
  public String toString() {
