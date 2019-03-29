@@ -174,6 +174,12 @@ class MyLinkedList{
    return result + "]";
  }
 
+ public void clear() {
+   length = 0;
+   start = null;
+   end = null;
+ }
+
  public static void main(String[] args) {
    MyLinkedList test = new MyLinkedList();
    System.out.println(test.toString());
